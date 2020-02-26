@@ -1,4 +1,5 @@
 // Base de dados a ser utilizada
+
 const alunosDaEscola=[
     {nome: "Henrique", notas: [], cursos: [], faltas: 5},
     {nome: "Edson", notas: [], cursos: [], faltas: 2},
@@ -6,7 +7,7 @@ const alunosDaEscola=[
     {nome: "Guilherme", notas: [10, 9.8, 9.6], cursos: [{nomeDoCurso: "Full Stack", dataMatricula: new Date}], faltas: 0},
     {nome: "Carlos", notas:[], cursos:[], faltas:0},
     {nome: "Lucca", notas: [10, 9.8, 9.6], cursos: [{nomeDoCurso: "UX", dataMatricula: new Date}], faltas: 0}
-];
+]
 
 // Implementação
 
@@ -17,13 +18,36 @@ function adicionarAluno(nomeFormatoString){
         A função deve devolver um feedback de sucesso, caso o aluno seja inserido corretamente.
     */
 }
-   
+
 function listarAlunos(){
+    console.log(`\n:::::: Lista de Alunos ::::::`)
+    alunosDaEscola.forEach(element => {
+        console.log(`\n------------\n\nNome: ${element.nome}`)
+        console.log(`Faltas: ${element.faltas}`)
+        element.notas.length === 0
+            ? console.log(`Notas: ainda sem notas no sistema`)
+            : console.log(`Notas: ${element.notas}`)
+        element.cursos.length === 0
+            ? console.log(`Cursos: ainda sem matrícula em um curso`)
+            : console.log(`Cursos:`)
+            element.cursos.forEach((element) => {
+                const dataFormatada = 
+                    element.dataMatricula.getDate()
+                    + '-'
+                    + (element.dataMatricula.getMonth() + 1)
+                    + '-'
+                    + element.dataMatricula.getFullYear()
+                console.log(`    • ${element.nomeDoCurso}, matriculado em ${dataFormatada}`)
+            })
+    })
     /*
         Com essa função o usuário poderá ver todos os alunos cadastrados atualmente no sistema. 
         Vale dizer que As informações deverão ser exibidas em um formato amigável.
     */
 }
+
+
+listarAlunos()
 
 function buscarAluno(nomeFormatoString){
     /*
@@ -60,7 +84,7 @@ function aplicarNota(alunoFormatoObjeto){
     */
 }
    
-     function aprovarAluno(alunoFormatoObjeto){
+ function aprovarAluno(alunoFormatoObjeto){
     /* 
         Ao receber um aluno devidamente cadastrado em nossa lista, deverá dizer se o mesmo está aprovado ou não. 
         Os critérios de aprovação são: ter no máximo 3 faltas e média 7 em notas.
