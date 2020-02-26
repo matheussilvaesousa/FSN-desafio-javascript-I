@@ -1,3 +1,5 @@
+const readline = require('readline')
+
 // Base de dados a ser utilizada
 
 const alunosDaEscola=[
@@ -13,9 +15,9 @@ const alunosDaEscola=[
 
 function adicionarAluno(nomeFormatoString){
     /* 
-        Essa função irá receber uma *string* que é nome do aluno a ser criado. 
-        E seguindo o modelo de aluno, o mesmo deverá ser inserido na lista de alunos.
-        A função deve devolver um feedback de sucesso, caso o aluno seja inserido corretamente.
+        Essa função receberá em formato *string* o nome do aluno a ser criado. 
+        Seguindo o modelo de aluno, o mesmo deverá ser inserido na lista de alunos.
+        A função também deve devolver um feedback de sucesso, caso o aluno seja inserido corretamente.
     */
 }
 
@@ -41,53 +43,48 @@ function listarAlunos(){
             })
     })
     /*
-        Com essa função o usuário poderá ver todos os alunos cadastrados atualmente no sistema. 
-        Vale dizer que As informações deverão ser exibidas em um formato amigável.
+        Por meio dessa função o usuário poderá ver todos os alunos cadastrados atualmente no sistema. 
+        Vale dizer que as informações deverão ser exibidas em um formato amigável.
     */
 }
 
-
-listarAlunos()
-
 function buscarAluno(nomeFormatoString){
     /*
-        Por meio dessa função, podemos pesquisar um aluno por nome na lista de aluno. 
-        Ela deverá exibir um feedback, tanto para quando encontrar o aluno, tanto quando não encontrar. 
-        E deverá devolver um aluno em seu retorno.
+        Por meio dessa função, poderemos pesquisar um aluno por nome na lista de aluno. 
+        Deverá exibir um feedback, tanto para quando encontrar o aluno, tanto quando não encontrar. 
+        Caso encontre, deverá devolver os dados do aluno.
     */
 }
 
 function matricularAluno(alunoFormatoObjeto, cursoFormatoString){
     /*
-        Essa funcionalidade irá permitir, cadastrar um aluno em um curso. 
-        Essa função só poderá ser executada em um aluno já devidamente cadastrado no sistema, 
-        e deverá armazenar a data atual no momento da matricula.
+        Essa funcionalidade irá permitir cadastrar um aluno em um curso. 
+        A função só poderá ser executada em um aluno já devidamente cadastrado no sistema, 
+        e deverá armazenar a data do momento da matrícula.
         Lembre-se de exibir o feedback para o usuário.
     */
 }
 
 function aplicarFalta(alunoFormatoObjeto){
     /*
-        Ao receber um aluno devidamente cadastrado em nossa lista. 
-        Você deverá incrementar uma falta ao aluno. 
-        Você deverá dar um feedback ao concluir a tarefa. 
-        Só poderá aplicar falta em aluno se o mesmo tiver matriculado em um curso.
+        Ao receber um aluno, deverá incrementar uma falta ao aluno. 
+        Também deverá dar um feedback ao concluir a tarefa. 
+        Só poderá aplicar falta se estiver matriculado em um curso.
     */
 }
     
 function aplicarNota(alunoFormatoObjeto){
     /*
-        Ao receber um aluno devidamente cadastrado em nossa lista. 
-        Você deverá adicionar uma nota ao aluno na sua lista de notas. 
-        Você deverá dar um feedback ao concluir a tarefa. 
+        Ao receber um aluno, deverá adicionar uma nota ao aluno na sua lista de notas. 
+        Deverá dar um feedback ao concluir a tarefa. 
         Só poderá aplicar nota em aluno se o mesmo tiver matriculado em um curso.
     */
 }
    
  function aprovarAluno(alunoFormatoObjeto){
     /* 
-        Ao receber um aluno devidamente cadastrado em nossa lista, deverá dizer se o mesmo está aprovado ou não. 
+        Ao receber um aluno cadastrado em nossa lista, dirá se o mesmo está aprovado ou não. 
         Os critérios de aprovação são: ter no máximo 3 faltas e média 7 em notas.
-        Só o aluno só poderá ser aprovado se o mesmo tiver matriculado em um curso.
+        Só poderá ser aprovado se estiver matriculado em um curso.
     */
 }
