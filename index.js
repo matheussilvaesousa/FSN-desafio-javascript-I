@@ -1,8 +1,8 @@
-const readline = require('readline')
+const readline = require('readline-sync')
 
 // Base de dados a ser utilizada
 
-const alunosDaEscola=[
+const alunosDaEscola = [
     {nome: "Henrique", notas: [], cursos: [], faltas: 5},
     {nome: "Edson", notas: [], cursos: [], faltas: 2},
     {nome: "Bruno", notas: [10, 9.8, 9.6], cursos: [], faltas: 0},
@@ -13,7 +13,7 @@ const alunosDaEscola=[
 
 // Implementação
 
-function adicionarAluno(nomeFormatoString){
+function adicionarAluno(nomeFormatoString) {
     /* 
         Essa função receberá em formato *string* o nome do aluno a ser criado. 
         Seguindo o modelo de aluno, o mesmo deverá ser inserido na lista de alunos.
@@ -21,7 +21,7 @@ function adicionarAluno(nomeFormatoString){
     */
 }
 
-function listarAlunos(){
+function listarAlunos() {
     console.log(`\n:::::: Lista de Alunos ::::::`)
     alunosDaEscola.forEach(element => {
         console.log(`\n------------\n\nNome: ${element.nome}`)
@@ -32,7 +32,7 @@ function listarAlunos(){
         element.cursos.length === 0
             ? console.log(`Cursos: ainda sem matrícula em um curso`)
             : console.log(`Cursos:`)
-            element.cursos.forEach((element) => {
+            element.cursos.forEach(element => {
                 const dataFormatada = 
                     element.dataMatricula.getDate()
                     + '-'
@@ -48,15 +48,42 @@ function listarAlunos(){
     */
 }
 
-function buscarAluno(nomeFormatoString){
+function buscarAluno(nomeFormatoString) {
+    const resultadoPesquisa = alunosDaEscola.filter(
+        element => element.nome.indexOf(nomeFormatoString) !== -1
+    )
+    resultadoPesquisa.length === 0
+        ? console.log('\nNão foram encontrados alunos com esse nome')
+        : console.log(`\nAlunos encontrados na pesquisa:`)
+        resultadoPesquisa.forEach((element, index) => {
+            console.log(
+                `\n     (${index + 1}) ${element.nome}`
+                + `\n        • Faltas: ${element.faltas}`
+            )
+            element.notas.length === 0
+                ? console.log(`        • Notas: ainda sem notas no sistema`)
+                : console.log(`        • Notas: ${element.notas}`)
+            element.cursos.length === 0
+                ? console.log(`        • Cursos: ainda sem matrícula em um curso`)
+                : console.log(`        • Cursos:`)
+                element.cursos.forEach(element => {
+                    const dataFormatada = 
+                        element.dataMatricula.getDate()
+                        + '-'
+                        + element.dataMatricula.getMonth()
+                        + '-'
+                        + element.dataMatricula.getFullYear()
+                    console.log(`            • ${element.nomeDoCurso}, matriculado em ${dataFormatada}`)
+                })
+        })
     /*
-        Por meio dessa função, poderemos pesquisar um aluno por nome na lista de aluno. 
+        Por meio dessa função, pesquisaremos um aluno por nome na lista de alunos. 
         Deverá exibir um feedback, tanto para quando encontrar o aluno, tanto quando não encontrar. 
         Caso encontre, deverá devolver os dados do aluno.
     */
 }
 
-function matricularAluno(alunoFormatoObjeto, cursoFormatoString){
+function matricularAluno(alunoFormatoObjeto, cursoFormatoString) {
     /*
         Essa funcionalidade irá permitir cadastrar um aluno em um curso. 
         A função só poderá ser executada em um aluno já devidamente cadastrado no sistema, 
@@ -65,7 +92,7 @@ function matricularAluno(alunoFormatoObjeto, cursoFormatoString){
     */
 }
 
-function aplicarFalta(alunoFormatoObjeto){
+function aplicarFalta(alunoFormatoObjeto) {
     /*
         Ao receber um aluno, deverá incrementar uma falta ao aluno. 
         Também deverá dar um feedback ao concluir a tarefa. 
@@ -73,15 +100,15 @@ function aplicarFalta(alunoFormatoObjeto){
     */
 }
     
-function aplicarNota(alunoFormatoObjeto){
+function aplicarNota(alunoFormatoObjeto) {
     /*
         Ao receber um aluno, deverá adicionar uma nota ao aluno na sua lista de notas. 
         Deverá dar um feedback ao concluir a tarefa. 
         Só poderá aplicar nota em aluno se o mesmo tiver matriculado em um curso.
     */
 }
-   
- function aprovarAluno(alunoFormatoObjeto){
+
+ function aprovarAluno(alunoFormatoObjeto) {
     /* 
         Ao receber um aluno cadastrado em nossa lista, dirá se o mesmo está aprovado ou não. 
         Os critérios de aprovação são: ter no máximo 3 faltas e média 7 em notas.
