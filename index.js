@@ -14,6 +14,10 @@ const alunosDaEscola = [
 // Implementação
 
 function adicionarAluno(nomeFormatoString) {
+    alunosDaEscola.push(
+        {nome: nomeFormatoString, notas: [], cursos: [], faltas: 0}
+    )
+    console.log(`${nomeFormatoString[0].toUpperCase() + nomeFormatoString.slice(1)} foi cadastrado(a) no sistema`)
     /* 
         Essa função receberá em formato *string* o nome do aluno a ser criado. 
         Seguindo o modelo de aluno, o mesmo deverá ser inserido na lista de alunos.
