@@ -105,6 +105,11 @@ function aplicarFalta(alunoFormatoObjeto) {
 }
     
 function aplicarNota(alunoFormatoObjeto, notaAplicada) {
+    const indexNaListaAlunos = alunosDaEscola.indexOf(alunoFormatoObjeto)
+    alunoFormatoObjeto.cursos.length === 1
+        ? (alunosDaEscola[indexNaListaAlunos].notas.push(notaAplicada),
+        console.log(`Nota aplicada ao aluno(a) ${alunoFormatoObjeto.nome}`))
+        : console.log(`Nenhum aluno(a) matriculado com o nome ${alunoFormatoObjeto.nome}`)
     /*
         Ao receber um aluno, deverá adicionar uma nota ao aluno na sua lista de notas. 
         Deverá dar um feedback ao concluir a tarefa. 
