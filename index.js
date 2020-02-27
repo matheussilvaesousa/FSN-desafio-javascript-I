@@ -97,6 +97,11 @@ function matricularAluno(alunoFormatoObjeto, cursoFormatoString) {
 }
 
 function aplicarFalta(alunoFormatoObjeto) {
+    const indexNaListaAlunos = alunosDaEscola.indexOf(alunoFormatoObjeto)
+    alunosDaEscola[indexNaListaAlunos].cursos.length === 1
+        ? (alunosDaEscola[indexNaListaAlunos].faltas += 1,
+            console.log(`Falta aplicada ao(à) ${alunosDaEscola[indexNaListaAlunos].nome}`))
+        : console.log(`${alunoFormatoObjeto.nome} não está matriculado(a) em nenhum curso`)
     /*
         Ao receber um aluno, deverá incrementar uma falta ao aluno. 
         Também deverá dar um feedback ao concluir a tarefa. 
@@ -108,8 +113,8 @@ function aplicarNota(alunoFormatoObjeto, notaAplicada) {
     const indexNaListaAlunos = alunosDaEscola.indexOf(alunoFormatoObjeto)
     alunoFormatoObjeto.cursos.length === 1
         ? (alunosDaEscola[indexNaListaAlunos].notas.push(notaAplicada),
-        console.log(`Nota aplicada ao aluno(a) ${alunoFormatoObjeto.nome}`))
-        : console.log(`Nenhum aluno(a) matriculado com o nome ${alunoFormatoObjeto.nome}`)
+            console.log(`Nota aplicada ao aluno(a) ${alunoFormatoObjeto.nome}`))
+        : console.log(`${alunoFormatoObjeto.nome} não está matriculado(a) em nenhum curso`)
     /*
         Ao receber um aluno, deverá adicionar uma nota ao aluno na sua lista de notas. 
         Deverá dar um feedback ao concluir a tarefa. 
