@@ -104,7 +104,7 @@ function aplicarFalta(alunoFormatoObjeto) {
     */
 }
     
-function aplicarNota(alunoFormatoObjeto) {
+function aplicarNota(alunoFormatoObjeto, notaAplicada) {
     /*
         Ao receber um aluno, deverá adicionar uma nota ao aluno na sua lista de notas. 
         Deverá dar um feedback ao concluir a tarefa. 
@@ -112,7 +112,14 @@ function aplicarNota(alunoFormatoObjeto) {
     */
 }
 
- function aprovarAluno(alunoFormatoObjeto) {
+function aprovarAluno(alunoFormatoObjeto) {
+    alunoFormatoObjeto.faltas <= 3
+    && alunoFormatoObjeto.notas.reduce((accumulator, currentValue, currentIndex) => {
+        return accumulator + currentValue / currentIndex
+    }) >= 7
+    && alunoFormatoObjeto.cursos.length > 0
+        ? console.log(`Aluno(a) ${alunoFormatoObjeto.nome} aprovado`)
+        : console.log(`Aluno(a) ${alunoFormatoObjeto.nome} reprovado`)
     /* 
         Ao receber um aluno cadastrado em nossa lista, dirá se o mesmo está aprovado ou não. 
         Os critérios de aprovação são: ter no máximo 3 faltas e média 7 em notas.
