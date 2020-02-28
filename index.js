@@ -26,9 +26,18 @@ function adicionarAluno(nomeFormatoString) {
 }
 
 function listarAlunos() {
-    console.log(`\n:::::: Lista de Alunos ::::::`)
+    console.log(`
+
+    ██╗     ██╗███████╗████████╗ █████╗     ██████╗ ███████╗     █████╗ ██╗     ██╗   ██╗███╗   ██╗ ██████╗ ███████╗
+    ██║     ██║██╔════╝╚══██╔══╝██╔══██╗    ██╔══██╗██╔════╝    ██╔══██╗██║     ██║   ██║████╗  ██║██╔═══██╗██╔════╝
+    ██║     ██║███████╗   ██║   ███████║    ██║  ██║█████╗      ███████║██║     ██║   ██║██╔██╗ ██║██║   ██║███████╗
+    ██║     ██║╚════██║   ██║   ██╔══██║    ██║  ██║██╔══╝      ██╔══██║██║     ██║   ██║██║╚██╗██║██║   ██║╚════██║
+    ███████╗██║███████║   ██║   ██║  ██║    ██████╔╝███████╗    ██║  ██║███████╗╚██████╔╝██║ ╚████║╚██████╔╝███████║
+    ╚══════╝╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝    ╚═════╝ ╚══════╝    ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
+
+    \nLISTA DE ALUNOS`)
     alunosDaEscola.forEach(element => {
-        console.log(`\n------------\n\nNome: ${element.nome}`)
+        console.log(`\n::::::::::::\n\nNome: ${element.nome}`)
         console.log(`Faltas: ${element.faltas}`)
         element.notas.length === 0
             ? console.log(`Notas: ainda sem notas no sistema`)
@@ -57,8 +66,8 @@ function buscarAluno(nomeFormatoString) {
         element => element.nome.indexOf(nomeFormatoString) !== -1
     )
     resultadoPesquisa.length === 0
-        ? console.log('\nNão foram encontrados alunos com esse nome')
-        : console.log(`\nAlunos encontrados na pesquisa:`)
+        ? console.log('\nNão foram encontrados alunos(as) com esse nome')
+        : console.log(`\nAlunos(as) encontrados na pesquisa:`)
         resultadoPesquisa.forEach((element, index) => {
             console.log(
                 `\n     (${index + 1}) ${element.nome}`
@@ -88,6 +97,14 @@ function buscarAluno(nomeFormatoString) {
 }
 
 function matricularAluno(alunoFormatoObjeto, cursoFormatoString) {
+    const indexNaListaAlunos = alunosDaEscola.indexOf(alunoFormatoObjeto)
+    indexNaListaAlunos !== -1
+        ? (alunosDaEscola[indexNaListaAlunos].cursos.push(
+            {nomeDoCurso: cursoFormatoString,
+            dataMatricula: new Date}),
+            console.log(`${alunoFormatoObjeto.nome} foi matriculado(a) no curso ${cursoFormatoString}`)
+        )
+        : console.log(`${alunoFormatoObjeto.nome} não está matriculado(a) em nenhum curso`)
     /*
         Essa funcionalidade irá permitir cadastrar um aluno em um curso. 
         A função só poderá ser executada em um aluno já devidamente cadastrado no sistema, 

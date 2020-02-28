@@ -71,7 +71,7 @@
    }
    ```
 
-### Links utéis
+### Links úteis
    - [Documentação JS](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
    - [Dicas de Map, Filter e Reduce](https://desenvolvimentoparaweb.com/javascript/map-filter-reduce-javascript/)
    - [Objetos Literais JS](https://tableless.com.br/javascript-objetos-literais-vs-funcoes-construtoras/)
